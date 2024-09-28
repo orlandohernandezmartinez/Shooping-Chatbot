@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación de Chatbot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <!-- Botón para abrir el chatbot -->
+  <button class="chatbot-btn" onclick="toggleChatbot()">💬</button>
+
+  <!-- Contenedor del chatbot -->
+  <div id="chatbot" class="chatbot-container">
+    <div class="chatbot-header">
+      <button class="restart-btn" onclick="restartChat()"><i class="fas fa-sync-alt"></i></button>
+      <span>Shopping Assistant</span>
+      <button class="close-btn" onclick="toggleChatbot()">X</button>
+    </div>
+    <div class="chatbot-body" id="chat-body">
+      <div id="initial-message">
+        <p>Hi, I'm your shopping assistant. I can help you with...</p>
+        <div class="preloaded-messages">
+          <button onclick="sendPreloadedMessage('Help me find a gift')">Help me find a gift</button>
+          <button onclick="sendPreloadedMessage('I want vegan products')">I want vegan products</button>
+          <button onclick="sendPreloadedMessage('I am looking for running shoes')">I am looking for running shoes</button>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="user-input" placeholder="Message" oninput="toggleSendButton()" onkeypress="handleEnter(event)">
+      <button id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      <button id="mic-btn" onmousedown="startCounting()" onmouseup="stopCounting()"><i class="fas fa-microphone"></i></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
